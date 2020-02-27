@@ -1,0 +1,26 @@
+Delete Logical & physical duplicate
+
+create table #c(City1 varchar(10), City2 varchar(10), Distance varchar(10))
+insert into #c values 
+('A'  ,    'B'  ,   500 ),
+('C'  ,    'D' ,    400 ),
+('E' ,     'F'  ,   800 ),
+('F' ,     'E'  ,   800 )
+					
+go
+select * from #c
+
+go
+
+with cte_logical
+as
+(
+select *,ROW_NUMBER() over(partition by  City1 order by City1) log_phy  from(
+SELECT  
+    CASE WHEN City1 < City2 THEN City1 ELSE City2 END AS City1,
+    CASE WHEN City2 < City1 THEN City1 ELSE City2 END AS City2,Distance
+   
+FROM #c) sa
+)
+delete from cte_logical where log_phy >1
+go
