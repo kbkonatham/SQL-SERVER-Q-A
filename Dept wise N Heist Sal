@@ -1,0 +1,15 @@
+method 1 (derived table)
+----------
+select * from(
+select *, DENSE_RANK() over(partition by deptno order by sal desc) de_sal from emptest) one
+where de_sal=3
+
+method  (CTE)
+----------
+
+
+with cte_rank
+as
+(
+select *, DENSE_RANK() over(partition by deptno order by sal desc) de_sal from emptest) 
+select * from cte_rank where de_sal=3
