@@ -1,0 +1,6 @@
+How many ways can I directly return data from stored procedures to a calling program to use?
+
+I can return information from a stored procedure in these ways:
+1) Result sets
+2) Output Parameters
+3) Return values
