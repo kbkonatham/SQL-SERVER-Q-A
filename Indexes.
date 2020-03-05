@@ -55,7 +55,7 @@ select (IX) ------ covering index onealy for display purous, not suitable for  j
 distinct--(IX)     sort remove duplicates 
 top 
 order by (IX)      sort the data 
-      if source  is sorted based on the  required column then no need  to sort the date again. 
+      if source  is sort the  data based on the  required column then no need  to sort the date again. 
 
 Write operation
 ----------------------
