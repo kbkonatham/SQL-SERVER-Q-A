@@ -1,0 +1,6 @@
+create table #one(no int,name varchar(10),gender varchar(10))
+insert into #one values(1,'A','M'),(2,'B','F'),(3,'C','M')
+SELECT * FROM #one ORDER BY 1
+
+UPDATE #one SET  gender= (CASE WHEN gender= 'M' THEN 'F'
+                                ELSE 'M'END)
