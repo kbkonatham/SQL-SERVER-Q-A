@@ -1,0 +1,29 @@
+inconsistency with nulls
+-------------------------
+1) null<> null
+-------------
+on
+where 
+having
+
+2) null=null
+-----------
+group by
+order by
+set operators
+
+3) allow null values
+--------------------
+check constraint all nulls even if not satisfya the  required condition
+
+4) if(t)
+----------
+begin
+end
+else(F/ unnown)
+begin
+end
+
+
+5) same in case statement also
+-------------------------------
