@@ -36,6 +36,11 @@ Fill factor  (its helps us to slowing down the frage)
     
  2) <30%  :  Rebuilding the Index ( drop and re-create the index)
       alter index ix_emp_empno on emp  rebuild
+      
+  
+create  unique index ix_emp_empno  on emp(empno)
+with (fillfactor=80, pad_index=on);
+         pad_indec  is for  indexpages  
 
 Index usage in  class
 --------------------------
