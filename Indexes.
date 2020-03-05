@@ -39,17 +39,18 @@ Fill factor  (its helps us to slowing down the frage)
 
 Index usage in  class
 --------------------------
-from (IX) 
-on  (IX)
+from (IX)           index (seek,scan)
+on  (IX)     
 join-----------
-where (IX)
-group by (IX)
+where (IX)    
+group by (IX)      (stream,hash) aggregate
 having-----------
 cube/rollup
 select (IX) ------ covering index onealy for display purous, not suitable for  join and where claues 
-distinct--(IX)
+distinct--(IX)     sort remove duplicates 
 top 
-order by (IX)
+order by (IX)      sort the data 
+      if source  is sorted based on the  required column then no need  to sort the date again. 
 
 Write operation
 ----------------------
