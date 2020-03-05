@@ -19,9 +19,9 @@ identity
 not null
 data type check
 instead of trigger
-pk
+pkey
 check 
-fk
+fkey
 dml
 t-log update
 after trigger
