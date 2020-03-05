@@ -1,0 +1,59 @@
+select * form emp (100 rows)
+table scan , linear search 
+select * form emp where empno=7369 (1 rows)
+table scan
+
+index  reduces the logical reads,leads to increases  the performances of fetching the records.
+
+ select * form emp where empno=7369 (1 rows) (index seek) 
+
+index used double linked list data structure 
+
+best option for create index  on table column 
+ Fixed with columns   Int
+                                 numeric
+bad option  for create index on  table column
+    newid()
+    natural keys
+lead to fragmentation level ( page splits)
+
+--Syntax  :
+create clustered index ix_emp_empno on emp_index(empno)--- (16  columns)
+
+--- too many columns in index  increases the  index maintenance cost
+
+create nonclustered index ix_emp_deptno_include on emp_index(deptno) 
+
+--- include (ename,job)--  include index
+--- where deptno=10---  filter index
+
+
+
+Fill factor  (its helps us to slowing down the frage)
+--------------------
+ 1) 5-30%  :  Reorganizing the Index ( arrange the data in the data pages )
+ 2) <30%  :  Rebuilding the Index ( drop and re-create the index)
+ 
+
+Index usage in  class
+--------------------------
+from (IX) 
+on  (IX)
+join-----------
+where (IX)
+group by (IX)
+having-----------
+cube/rollup
+select (IX) ------ covering index onealy for display purous, not suitable for  join and where claues 
+distinct--(IX)
+top 
+order by (IX)
+
+Write operation
+----------------------
+insert  
+update (Fetch and Update)
+delete (Fetch and Delete)
+
+too many indexes reduces the performance   of dml operations because  update index pages also.
+no index also reduces the  performance.
