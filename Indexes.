@@ -32,8 +32,10 @@ create nonclustered index ix_emp_deptno_include on emp_index(deptno)
 Fill factor  (its helps us to slowing down the frage)
 --------------------
  1) 5-30%  :  Reorganizing the Index ( arrange the data in the data pages )
+    alter index ix_emp_empno on emp reorganize
+    
  2) <30%  :  Rebuilding the Index ( drop and re-create the index)
- 
+      alter index ix_emp_empno on emp  rebuild
 
 Index usage in  class
 --------------------------
