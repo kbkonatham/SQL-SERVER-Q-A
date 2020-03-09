@@ -17,7 +17,7 @@ bad option  for create index on  table column
     natural keys (ssid no,addar,pancard no)
 lead to fragmentation level ( page splits)
 
---Syntax  :
+--Syntax :
 create clustered index ix_emp_empno on emp_index(empno)--- (16  columns)
 
 --- too many columns in index  increases the  index maintenance cost
