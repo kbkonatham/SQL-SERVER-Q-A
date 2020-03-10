@@ -1,0 +1,19 @@
+
+
+
+
+
+declare @tbl table(emp varchar(10),mgr varchar(10))
+insert into @tbl(emp,mgr) values('A','B')
+insert into @tbl(emp,mgr) values('B','C')
+insert into @tbl(emp,mgr) values('C','D')
+insert into @tbl(emp,mgr) values('E','F')
+insert into @tbl(emp,mgr) values('F','G')
+
+SELECT * FROM @tbl T1
+ 
+SELECT T1.emp,COALESCE(T3.mgr,T3.emp,T2.mgr,T2.emp,T1.mgr,T1.emp) AS MGR
+FROM @tbl T1
+FULL OUTER JOIN  @tbl T2 ON T2.emp = T1.mgr  
+FULL OUTER JOIN @tbl T3 ON T3.emp = T2.mgr
+WHERE T1.emp IS NOT NULL 
