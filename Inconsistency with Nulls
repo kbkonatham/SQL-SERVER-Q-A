@@ -10,7 +10,7 @@ having
 -----------
 group by
 order by
-set operators
+set operators(all columns are null)
 
 3) allow null values
 --------------------
