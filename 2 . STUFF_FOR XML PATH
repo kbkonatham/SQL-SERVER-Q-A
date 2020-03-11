@@ -1,0 +1,38 @@
+Sql Server Interview Questions and Answers
+
+--Scripts--
+
+Create Table Comma_Separated_Tbl
+(
+   TrainingId Int ,
+   Training     varchar(100),
+   Classroom    varchar(100),
+   StartTime    Time,
+   duration     numeric(14,2),
+   wk           varchar(10)
+)
+
+Insert Comma_Separated_Tbl
+Select 1,'SQL Server','Silver Room','10:00',2.00,'M'
+Union
+Select 2,'SQL Server','Silver Room','10:00',2.00,'W'
+UNION
+Select 3,'SQL Server','Silver Room','10:00',2.00,'T'
+Union
+Select 4,'SQL Server','Silver Room','10:00',2.00,'F'
+UNION
+Select 5,'MSBI','GOLD Room','11:00',1.45,'F'
+Union
+Select 6,'MSBI','GOLD Room','11:00',1.45,'M'
+Union
+Select 7,'MSBI','GOLD Room','11:00',1.45,'TH'
+
+
+Select *
+from Comma_Separated_Tbl
+
+SELECT DISTINCT Training,Classroom,StartTime,duration,STUFF(
+                 (SELECT ',' + wk FROM Comma_Separated_Tbl 
+     WHERE Training=A.Training FOR XML PATH ('')), 1, 1, ''
+               ) 
+FROM Comma_Separated_Tbl AS A
