@@ -1,0 +1,16 @@
+select * from (select 100 ) ss --- errore no column name 
+select * from (select 100 aa) ss correct
+
+select 10/3 --3
+
+select 10/3.00 --3.333
+
+select count(1),count(*)--- 1,1
+
+select (select 'bala')as name  ---bala
+
+select sum(5*10+5) as total --55
+
+select max(100,200) as qq ---max required one parameter
+
+select sum('250') ---error
