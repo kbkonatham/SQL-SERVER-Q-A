@@ -16,3 +16,13 @@ not getting
 17 . Current,Previous and Next values in sql.(with out first and last function)
 
 18 . Delete duplicate rows in sql (Logical duplicate )
+
+19 . Status Changing Report in sql (multiple cte )
+   with cte_main
+   (row_no())
+   , cte_pass
+   (select * from tbl where status='p')
+   select m.* from cte_main m 
+     join cte_pass p
+     on m.seq=p.seq+1
+     where m.status='F'
