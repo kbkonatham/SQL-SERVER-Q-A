@@ -26,3 +26,8 @@ not getting
      join cte_pass p
      on m.seq=p.seq+1
      where m.status='F'
+     
+     
+20 . Real time use of function in sql 
+
+
