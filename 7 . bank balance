@@ -1,4 +1,8 @@
- ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+https://stackoverflow.com/questions/29609750/select-running-balance-from-table-credit-debit-columns
+
+UNBOUNDED PRECEDING can only be specified as window starting point.
+
+ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
 
 CREATE TABLE Test1(
   Id int,
