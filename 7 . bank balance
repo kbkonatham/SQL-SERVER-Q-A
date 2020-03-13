@@ -1,0 +1,27 @@
+ ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+
+CREATE TABLE Test1(
+  Id int,
+  TransDate DATE,
+  Credit INT,
+  Debit INT
+);
+
+INSERT INTO Test1 VALUES
+(1, '2014-01-01',   5000,      NULL),  
+(2, '2014-01-07',   NULL,      2000),   
+(3, '2014-01-11',   5000,      NULL),   
+(4, '2014-02-03',   6000,      NULL),    
+(5, '2014-02-06',   NULL,      4000),    
+(6, '2014-02-11',   3000,      NULL),   
+(7, '2014-02-21',   NULL,      1000),     
+(8, '2014-02-28',   2000,      NULL),     
+(9, '2014-03-01',   5000,      NULL) 
+
+SELECT  TransDate,
+        Credit, 
+        Debit, 
+        SUM(isnull(Credit,0) - isnull(Debit,0)) OVER (ORDER BY id ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) as Balance
+FROM Test1
+order by TransDate
+go
