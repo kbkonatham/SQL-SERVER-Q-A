@@ -1,0 +1,12 @@
+
+
+Suppose in a table, seven records are there.
+
+The column is an identity column.
+
+Now the client wants to insert a record after the identity value 7 with its identity value starting from 10.
+
+Is it possible? If so, how? If not, why not?
+
+
+DBCC CHECKIDENT(tableA,RESEED,9)
