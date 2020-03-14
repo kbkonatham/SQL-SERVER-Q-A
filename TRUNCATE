@@ -1,0 +1,6 @@
+This query will return 10 records as TRUNCATE was executed in the transaction. TRUNCATE does not itself keep a log but BEGIN TRANSACTION keeps track of the TRUNCATE command.
+
+BEGIN TRAN
+TRUNCATE TABLE Employees
+ROLLBACK
+SELECT * FROM Employees
