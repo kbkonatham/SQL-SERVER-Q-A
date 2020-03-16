@@ -1,3 +1,6 @@
+The non-clustered indexes on a heap will use the fill factor, but a heap is not an index (although it does appear in sys. indexes ). Since there is no way to reorganize a heap it can't have a fill factor. Fill factor only comes into the picture when rebuilding or creating an index; it only applies to indexes
+
+
 select * form emp (100 rows)
 table scan , linear search 
 select * form emp where empno=7369 (1 rows)
