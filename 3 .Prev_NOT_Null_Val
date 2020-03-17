@@ -3,7 +3,7 @@ SSU
 IF EXISTS(SELECT 1 FROM SYS.tables WHERE NAME='prev_null_val')
 BEGIN
  DROP TABLE prev_null_val
-END
+END 
 
 CREATE TABLE prev_null_val
 (
