@@ -1,4 +1,4 @@
-Delete Logical & physical duplicate
+Delete Logical & physical duplicate 
 
 create table #c(City1 varchar(10), City2 varchar(10), Distance varchar(10))
 insert into #c values 
